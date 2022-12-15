@@ -37,6 +37,7 @@ li {
 .center {
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   width: 100vw;
   height: 100vh;
@@ -68,6 +69,9 @@ p,
 a,
 button {
   font-size: clamp(1.6rem, 1.31vw, 2.1rem);
+}
+button {
+  cursor: pointer;
 }
 
 .btn {
@@ -104,4 +108,76 @@ button {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.question {
+  max-width: 90rem;
+}
+
+.question .btn {
+  margin-top: 2rem;
+  border: none;
+}
+
+.question__heading {
+  margin-bottom: 2rem;
+  font-size: clamp(2.8rem, 2.31rem, 3.79rem);
+}
+
+.question__answers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  gap: 2rem;
+}
+
+.question__answers button {
+  padding: 2rem;
+  border: none;
+  background-color: var(--lightBlack);
+  color: var(--white);
+  transition: 0.3s all linear;
+}
+
+.question__answers button:hover {
+  background-color: var(--accent);
+}
+
+/* .quiz .btn {
+  width: 30rem;
+  text-align: center;
+  margin-top: 2rem;
+  border: none;
+} */
+
+button.right {
+  background-color: rgb(39, 168, 89);
+}
+
+button.wrong {
+  background-color: rgb(128, 25, 25);
+}
+
+.wrong {
+  color: rgb(163, 61, 61);
+  font-size: 3rem;
+}
+
+.right {
+  color: rgb(39, 168, 89);
+}
+
+.results {
+  animation: 1s linear fadeIn;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

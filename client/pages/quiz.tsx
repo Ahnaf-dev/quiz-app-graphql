@@ -2,8 +2,10 @@ import { useQuery } from "@apollo/client";
 import React, { useState } from "react";
 import GET_QUESTIONS from "../queries/questionQueries";
 import { client } from "../pages/_app";
+import QuizCard from "../components/QuizCard";
+import Head from "next/head";
 
-interface Question {
+export interface Question {
   __typename: string;
   question: string;
   answers: string[];
@@ -11,8 +13,6 @@ interface Question {
 }
 
 const Quiz = ({ questions }: { questions: Question[] }) => {
-  const [currentQuestion, setCurrentQuestion] = useState<number>(0);
-
   if (!questions) {
     return (
       <div className="center">
@@ -21,7 +21,20 @@ const Quiz = ({ questions }: { questions: Question[] }) => {
     );
   }
 
-  return <h1>{questions[currentQuestion].question}</h1>;
+  return (
+    <>
+      <Head>
+        <title>Quiz App With GraphQL and Apollo</title>
+        <meta
+          name="description"
+          content="Quiz App Built With GraphQL and Apollo Client"
+        />
+      </Head>
+      <section className="quiz center container">
+        <QuizCard questions={questions} />
+      </section>
+    </>
+  );
 };
 
 export async function getStaticProps() {
