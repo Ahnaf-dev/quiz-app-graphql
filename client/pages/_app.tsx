@@ -8,7 +8,7 @@ import {
 } from "@apollo/client";
 
 export const client = new ApolloClient({
-  uri: `http://localhost:5000/graphql`,
+  uri: `https://graphql-quiz-app.onrender.com/graphql`,
   cache: new InMemoryCache(),
 });
 
