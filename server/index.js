@@ -19,4 +19,10 @@ app.use(
   })
 );
 
+// app.use(express.static("out"));
+
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "out", "index.html"));
+// });
+
 app.listen(port, console.log(`Server running on ${port}`));
