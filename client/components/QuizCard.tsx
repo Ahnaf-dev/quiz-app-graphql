@@ -29,7 +29,6 @@ const QuizCard = ({ questions }: { questions: Question[] }) => {
 
     if (noMoreQuestions) {
       setRetryBtn(true);
-      console.log(score);
     } else {
       setShowNext(true);
     }
